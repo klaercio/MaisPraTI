@@ -16,7 +16,7 @@ let votosBrancos = prompt(color.bold('Digite o número de votos brancos: '));
 let votosNulos = prompt(color.bold('Digite o número de votos nulos: '));
 let votosValidos = prompt(color.bold('Digite o número de votos válidos: '));
 
-console.log(color.cyan.bold(`${votosBrancos/numEleitores * 100}% de votos brancos`));
+console.log(color.cyan.bold(`\n${votosBrancos/numEleitores * 100}% de votos brancos`));
 console.log(color.cyan.bold(`${votosNulos/numEleitores * 100}% de votos nulos`));
 console.log(color.cyan.bold(`${votosValidos/numEleitores * 100}% de votos válidos \n`));
 
@@ -60,11 +60,11 @@ let lado3 = parseInt(prompt(color.bold('Digite o terceiro lado: ')));
 
 if((lado1 < lado2 + lado3) && (lado2 < lado1 + lado3) && (lado3 < lado1 + lado2)) {
     if(lado1 === lado2 && lado2 === lado3) {
-        console.log(color.cyan.bold(`\nForma um triângulo equilátero `));
+        console.log(color.cyan.bold(`\nForma um triângulo equilátero\n`));
     } else if(lado1 !== lado2 && lado2 !== lado3 && lado1 !== lado3) {
-        console.log(color.cyan.bold(`\nForma um triângulo escaleno `));
+        console.log(color.cyan.bold(`\nForma um triângulo escaleno\n`));
     }else {
-        console.log(color.cyan.bold(`\nForma um triângulo isósceles`));
+        console.log(color.cyan.bold(`\nForma um triângulo isósceles\n`));
     }
 } else {
     console.log(color.cyan.bold(`Não é possível formar um triângulo com esses valores fornecidos \n`));
@@ -127,7 +127,7 @@ for (let i = 0; i < 10; i++) {
 }
 
 //QUESTÃO 11
-console.log(color.greenBright.bold.underline("Questão 10 - Entrada: Um número - Saída: Par ou Ímpar \n"));
+console.log(color.greenBright.bold.underline("Questão 11 - Entrada: Um número - Saída: Par ou Ímpar; Para Parar a execução digite um número negativo \n"));
 
 let parOuImpar = Number(prompt(color.bold('Digite um número: ')));
 
@@ -137,15 +137,77 @@ while(parOuImpar !== null && parOuImpar >= 0) {
 }
 
 //QUESTÃO 12
-console.log(color.greenBright.bold.underline("Questão 10 - Saída: Imprime os números entre 1000 e 2000, que divididos por 11 tem resto 5 \n"));
+console.log(color.greenBright.bold.underline("\nQuestão 12 - Saída: Imprime os números entre 1000 e 2000, que divididos por 11 tem resto 5 \n"));
 
 for(let i = 1000; i <= 2000; i++) {
     if(i % 11 === 5) {
-        console.log(color.cyan.bold(`\n${i} \n`));    
+        console.log(color.cyan.bold(`${i}`));    
     }
 }
 
 //QUESTÃO 13
+console.log(color.greenBright.bold.underline("\nQuestão 13 - Entrada: 5 valores para N - Saída: Tabuada de 1 até N, para cada valor \n"));
+
+let n, i, qtdN = 0;
+ 
+while(qtdN < 5) {
+    n = parseInt(prompt('Digite um valor '));
+
+    for (i = 1; i <= n; i++) {
+        console.log(color.cyan.bold(`${i} X ${n} = ${i*n}`));
+    }
+    
+    qtdN++;
+} 
+
+
+//QUESTÃO 14
+console.log(color.greenBright.bold.underline("Questão 14 - Entrada: N valores decimais - Saída: Média aritmética dos valores informados - Para parar de receber valores digite 0 \n"));
+
+let numDec, soma = 0, qtd = 0;
+ 
+while(numDec = parseFloat(prompt('Digite um valor '))) {
+    soma+=numDec;
+    qtd++;
+} 
+
+console.log(color.cyan.bold(`\nResultado da média aritmética:${soma/qtd} \n`));
+
+//QUESTÃO 15
+console.log(color.greenBright.bold.underline("Questão 15 - Entrada: N valores decimais, e seus respectivos pesos - Saída: Média ponderada dos valores informados - Para parar de receber valores digite 0 \n"));
+
+let numDecimal, dividendo = 0, divisor = 0, peso = 0;
+ 
+while(numDecimal = parseFloat(prompt('Digite um valor '))) {
+    peso = parseFloat(prompt('Digite o peso do número informado acima '));
+    dividendo += numDecimal * peso;
+    divisor += peso;
+} 
+
+console.log(color.cyan.bold(`Resultado da média ponderada: \n${dividendo/divisor} \n`));
+
+//QUESTÃO 16
+console.log(color.greenBright.bold.underline("Questão 16 - Saída: 50 primeiros números primos maiores que 100 \n"));
+
+let qtdPrimo = 0, aux, qtdDivisores;
+let numTeste = 101;
+
+while(qtdPrimo < 50) {
+    aux = numTeste;
+    qtdDivisores = 0;
+    while(aux > 0) {
+        if(numTeste % aux === 0) {
+            qtdDivisores++;
+            qtdDivisores > 2? aux = 0: qtdDivisores;
+        }
+        aux--;
+    }
+    if(qtdDivisores === 2) {
+        console.log(color.cyan.bold(`${qtdPrimo + 1}° - ${numTeste}`));
+        qtdPrimo++;
+    }
+    numTeste+=2;
+}
 
 
 
