@@ -16,11 +16,15 @@ No terminal, clone o projeto:
 ```
 git clone https://github.com/klaercio/MaisPraTi.git
 ```
-Após clonar o projeto, entrar na pasta da atividade a qual você quer testar, abra o terminal e instale as dependências:
+Após clonar o projeto, abra o terminal e instale as dependências:
 
 ```
-cd .\Atividade01\
 npm install
+```
+Entre na pasta da atividade a qual você quer testar:
+
+```
+cd .\atividade01.js
 ```
 Para iniciar a aplicação:
 
